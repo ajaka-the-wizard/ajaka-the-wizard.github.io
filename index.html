@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adegoke Anthony — Backend & Systems Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="c-dot" id="cDot"></div>
+    <div class="c-ring" id="cRing"></div>
+    <div class="scroll-bar" id="scrollBar"></div>
+
+    <div class="ambient" aria-hidden="true">
+      <div class="orb orb-a"></div>
+      <div class="orb orb-b"></div>
+    </div>
+
+    <!-- NAV -->
+    <nav id="nav">
+      <div class="inner">
+        <span class="logo" id="navLogo"></span>
+        <ul class="nav-list">
+          <li><a href="#about" data-sec="about">About</a></li>
+          <li><a href="#skills" data-sec="skills">Skills</a></li>
+          <li><a href="#projects" data-sec="projects">Projects</a></li>
+          <li><a href="#contact" data-sec="contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+      <canvas id="hero-canvas"></canvas>
+      <div class="container">
+        <div class="hero-body">
+          <p class="hero-role">
+            <span id="roleText"></span
+            ><span class="blink" id="roleBlink"></span>
+          </p>
+          <h1 class="hero-name" id="heroName"></h1>
+          <p class="hero-desc" id="heroDesc"></p>
+          <div class="hero-cta" id="heroCta"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <p class="sec-lbl reveal">About</p>
+        <div class="about-body reveal" id="aboutBody"></div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <p class="sec-lbl reveal">Skills</p>
+        <div class="skills-grid stagger" id="skillsGrid"></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <p class="sec-lbl reveal">Projects</p>
+        <div class="project-list stagger" id="projectList"></div>
+        <div class="terminal reveal" id="alsoBuilding"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <p class="sec-lbl reveal">Contact</p>
+        <div class="contact-grid stagger" id="contactGrid"></div>
+        <p class="status-row reveal" id="availabilityRow"></p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p id="footerText"></p>
+      </div>
+    </footer>
+  </body>
+  <script type="module" src="script.js"></script>
+</html>

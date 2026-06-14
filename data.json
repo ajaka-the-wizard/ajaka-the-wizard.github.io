@@ -1,0 +1,124 @@
+{
+  "name": { "first": "Anthony", "last": "Adegoke" },
+  "role": "Backend, Infrastructure & Systems Engineer",
+  "tagline": "I build production-shaped infrastructure, storage engines, and backend services in Go, Rust, and TypeScript — with a focus on explicit error handling, clean service boundaries, and observable, reliable systems.",
+  "github": "https://github.com/ajaka-the-wizard",
+  "githubHandle": "ajaka-the-wizard",
+
+  "about": [
+    "I'm a self-directed backend and systems engineer based in <strong>Nigeria</strong>. I've been building the kind of projects you'd encounter in production — authentication systems, persistence layers, distributed workflows, probabilistic data structures, and developer tooling.",
+    "My primary languages are <strong>Rust</strong> and <strong>Go</strong>, with TypeScript for edge and serverless work. I care about how systems fail, how they recover, and how engineers on-call understand what's happening. Structured logging, request IDs, and latency tracking are not afterthoughts in my code.",
+    "Actively seeking <strong>backend, systems, or infrastructure roles</strong> — internship or entry-level, remote or international."
+  ],
+
+  "skills": [
+    {
+      "category": "Languages",
+      "tags": ["Rust", "Go", "TypeScript", "JavaScript", "SQL", "C++"]
+    },
+    {
+      "category": "Backend",
+      "tags": [
+        "Gin",
+        "Express",
+        "Hono",
+        "REST APIs",
+        "OAuth 2.0",
+        "Rate Limiting"
+      ]
+    },
+    {
+      "category": "Databases",
+      "tags": ["PostgreSQL", "Redis", "MongoDB", "S3 Storage", "Custom KV"]
+    },
+    {
+      "category": "Infrastructure",
+      "tags": [
+        "Cloudflare Workers",
+        "CF Queues",
+        "D1",
+        "GitHub Actions",
+        "Webhooks"
+      ]
+    },
+    {
+      "category": "Systems",
+      "tags": [
+        "Concurrency",
+        "Bloom Filters",
+        "Binary Serialization",
+        "CLI Tools"
+      ]
+    },
+    {
+      "category": "Observability",
+      "tags": [
+        "Structured Logging",
+        "Request IDs",
+        "Latency Tracking",
+        "Integration Tests"
+      ]
+    }
+  ],
+
+  "projects": [
+    {
+      "name": "CrispyDB",
+      "stack": "Rust",
+      "desc": "In-memory BTreeMap-backed key-value storage engine with async background persistence. Read paths are accelerated by Bloom filters (xxh3_128) to skip unnecessary disk I/O. Configurable builder pattern, tombstone-based deletes, and a manifest tracking flushed file numbers across shutdown cycles.",
+      "url": "https://github.com/ajaka-the-wizard"
+    },
+    {
+      "name": "Redir",
+      "stack": "Go · PostgreSQL · Redis · S3",
+      "desc": "Layered Gin service with strict package separation across routes, handlers, middleware, store, cache, and repository. Full auth stack: bcrypt, Redis-backed sessions, email verification, Google OAuth. Multipart uploads via AWS SDK v2, presigned URL caching, per-access metadata capture, and route-scoped rate limiting.",
+      "url": "https://github.com/ajaka-the-wizard/redir"
+    },
+    {
+      "name": "dnsgo",
+      "stack": "Go · in progress",
+      "desc": "Dual-mode DNS server: authoritative for its own zone, recursive resolver for everything else — forwarding to root servers and walking the full delegation chain. Clean package separation across cmd, internal, and configs; wire-protocol handled by a proven DNS library so focus stays on resolver and zone logic.",
+      "url": "https://github.com/ajaka-the-wizard/dnsgo"
+    },
+    {
+      "name": "ShipFlow",
+      "stack": "TypeScript · Cloudflare · MongoDB",
+      "desc": "Collaboration platform with workspace membership, RBAC, and task management. GitHub App integration with HMAC webhook verification, PR tracking, and cleanup flows. Cloudflare Worker (Hono + D1 + Drizzle + CF Queues) handles async webhook ingestion and an AI review pipeline, sharing event contracts and idempotency keys with the backend. This is currently a private repo and will be made available on request",
+      "url": null
+    }
+  ],
+
+  "alsoBuilding": [
+    {
+      "name": "bolt",
+      "lang": "Go",
+      "desc": "async order processing via Redis Streams, invoice generation, webhook delivery"
+    },
+    {
+      "name": "watch",
+      "lang": "Rust",
+      "desc": "nodemon-style file watcher that re-runs a configured command on directory changes"
+    }
+  ],
+
+  "contact": [
+    {
+      "label": "Email",
+      "value": "adegokeanthony23@gmail.com",
+      "href": "mailto:adegokeanthony23@gmail.com"
+    },
+    {
+      "label": "GitHub",
+      "value": "ajaka-the-wizard",
+      "href": "https://github.com/ajaka-the-wizard",
+      "target": "_blank"
+    },
+    {
+      "label": "Phone",
+      "value": "+234 901 595 5885",
+      "href": "tel:+2349015955885"
+    }
+  ],
+
+  "availability": "Open to backend, systems, or infrastructure roles — internship or entry-level, remote or international."
+}
