@@ -6,8 +6,8 @@
   "githubHandle": "ajaka-the-wizard",
 
   "about": [
-    "I'm a self-directed backend and systems engineer based in <strong>Nigeria</strong>. I've been building the kind of projects you'd encounter in production — authentication systems, persistence layers, distributed workflows, probabilistic data structures, and developer tooling.",
-    "My primary languages are <strong>Rust</strong> and <strong>Go</strong>, with TypeScript for edge and serverless work. I care about how systems fail, how they recover, and how engineers on-call understand what's happening. Structured logging, request IDs, and latency tracking are not afterthoughts in my code.",
+    "I'm a self-directed backend and systems engineer based in <strong>Nigeria</strong>. I build the kind of projects you'd encounter in production — authentication systems, persistence layers, distributed workflows, probabilistic data structures, and developer tooling.",
+    "My primary languages are <strong>Rust</strong>, <strong>Go</strong> and <strong>Typescript</strong>, with TypeScript for edge and serverless work. I care about how systems fail, how they recover, and how engineers on-call understand what's happening. Structured logging, request IDs, and latency tracking are not afterthoughts in my code.",
     "Actively seeking <strong>backend, systems, or infrastructure roles</strong> — internship or entry-level, remote or international."
   ],
 
@@ -66,7 +66,7 @@
       "name": "CrispyDB",
       "stack": "Rust",
       "desc": "In-memory BTreeMap-backed key-value storage engine with async background persistence. Read paths are accelerated by Bloom filters (xxh3_128) to skip unnecessary disk I/O. Configurable builder pattern, tombstone-based deletes, and a manifest tracking flushed file numbers across shutdown cycles.",
-      "url": "https://github.com/ajaka-the-wizard"
+      "url": "https://github.com/ajaka-the-wizard/crispyDB"
     },
     {
       "name": "Redir",
