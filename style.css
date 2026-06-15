@@ -724,11 +724,22 @@ section:last-of-type {
   background: var(--surface);
   padding: 22px;
   display: flex;
-  flex-direction: column;
-  gap: 5px;
+  align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
   transition: background 0.2s;
+  min-height: 72px;
+}
+.ccell-icon {
+  color: var(--muted);
+  transition:
+    color 0.2s,
+    transform 0.2s var(--expo);
+}
+.ccell:hover .ccell-icon {
+  color: var(--accent);
+  transform: scale(1.15);
 }
 .ccell::after {
   content: "";
@@ -748,7 +759,7 @@ section:last-of-type {
 .ccell:hover::after {
   transform: scaleX(1);
 }
-.clbl {
+/* .clbl {
   font-family: var(--mono);
   font-size: 9px;
   letter-spacing: 0.12em;
@@ -764,7 +775,7 @@ section:last-of-type {
 }
 .ccell:hover .cval {
   color: var(--bright);
-}
+} */
 
 .status-row {
   display: flex;

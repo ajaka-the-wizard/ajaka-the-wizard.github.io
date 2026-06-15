@@ -1,6 +1,7 @@
 {
   "name": { "first": "Anthony", "last": "Adegoke" },
   "role": "Backend, Infrastructure & Systems Engineer",
+  "resumeUrl": "https://res.cloudinary.com/dm9zg9toc/image/upload/fl_attachment/v1781524593/0001AdegokeAnthony_baj3us.pdf",
   "tagline": "I build production-shaped infrastructure, storage engines, and backend services in Go, Rust, and TypeScript — with a focus on explicit error handling, clean service boundaries, and observable, reliable systems.",
   "github": "https://github.com/ajaka-the-wizard",
   "githubHandle": "ajaka-the-wizard",
