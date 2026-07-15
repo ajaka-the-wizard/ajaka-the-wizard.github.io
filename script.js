@@ -57,11 +57,10 @@ function render() {
               <span class="pstack">${proj.stack}</span>
             </div>
             <p class="pdesc">${proj.desc}</p>
-            ${
-              proj.url
-                ? `<a class="plink" href="${proj.url}" target="_blank" rel="noopener">View on GitHub <span>→</span></a>`
-                : ""
-            }
+           <div style="display:flex;gap:20px;flex-wrap:wrap;">
+      ${proj.url ? `<a class="plink" href="${proj.url}"  target="_blank" rel="noopener">View on GitHub <span>→</span></a>` : ""}
+      ${proj.live ? `<a class="plink" href="${proj.live}" target="_blank" rel="noopener">Live site <span>→</span></a>` : ""}
+    </div>
           </div>`,
     )
     .join("");

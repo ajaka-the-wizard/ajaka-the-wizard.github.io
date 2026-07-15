@@ -1,36 +1,45 @@
 {
-  "name": { "first": "Anthony", "last": "Adegoke" },
+  "name": { "first": "Adegoke", "last": "Anthony" },
   "role": "Backend, Infrastructure & Systems Engineer",
-  "resumeUrl": "https://res.cloudinary.com/dm9zg9toc/image/upload/fl_attachment/v1781524593/0001AdegokeAnthony_baj3us.pdf",
-  "tagline": "I build production-shaped infrastructure, storage engines, and backend services in Go, Rust, and TypeScript — with a focus on explicit error handling, clean service boundaries, and observable, reliable systems.",
+  "resumeUrl": "https://res.cloudinary.com/dm9zg9toc/image/upload/fl_attachment/v1784104755/Adegoke_Anthony_backend_systems_infra_p3j4ex.pdf",
+  "tagline": "I build and ship systems across Go, Rust, and TypeScript — including a live, deployed SaaS platform. Hands-on with auth, async job pipelines, distributed rate limiting, and storage engine internals.",
   "github": "https://github.com/ajaka-the-wizard",
   "githubHandle": "ajaka-the-wizard",
 
   "about": [
     "I'm a self-directed backend and systems engineer based in <strong>Nigeria</strong>. I build the kind of projects you'd encounter in production — authentication systems, persistence layers, distributed workflows, probabilistic data structures, and developer tooling.",
-    "My primary languages are <strong>Rust</strong>, <strong>Go</strong> and <strong>Typescript</strong>, with TypeScript for edge and serverless work. I care about how systems fail, how they recover, and how engineers on-call understand what's happening. Structured logging, request IDs, and latency tracking are not afterthoughts in my code.",
+    "My primary languages are <strong>Go</strong>, <strong>Rust</strong>, and <strong>TypeScript</strong>. I care about how systems fail, how they recover, and how engineers on-call understand what's happening. Structured logging, request IDs, and latency tracking are not afterthoughts in my code.",
     "Actively seeking <strong>backend, systems, or infrastructure roles</strong> — internship or entry-level, remote or international."
   ],
 
   "skills": [
     {
       "category": "Languages",
-      "tags": ["Rust", "Go", "TypeScript", "JavaScript", "SQL", "C++"]
+      "tags": ["Go", "Rust", "TypeScript", "JavaScript", "SQL", "C++"]
     },
     {
       "category": "Backend",
       "tags": [
         "Gin",
+        "Fiber",
         "Express",
         "Hono",
         "REST APIs",
         "OAuth 2.0",
+        "API Keys",
         "Rate Limiting"
       ]
     },
     {
       "category": "Databases",
-      "tags": ["PostgreSQL", "Redis", "MongoDB", "S3 Storage", "Custom KV"]
+      "tags": [
+        "PostgreSQL",
+        "Redis Streams",
+        "Redis Lua",
+        "MongoDB",
+        "S3 Storage",
+        "Custom KV"
+      ]
     },
     {
       "category": "Infrastructure",
@@ -38,8 +47,9 @@
         "Cloudflare Workers",
         "CF Queues",
         "D1",
-        "GitHub Actions",
-        "Webhooks"
+        "GitHub Apps",
+        "Webhooks",
+        "GitHub Actions"
       ]
     },
     {
@@ -47,8 +57,10 @@
       "tags": [
         "Concurrency",
         "Bloom Filters",
+        "Sharded Maps",
+        "Token Bucket",
         "Binary Serialization",
-        "CLI Tools"
+        "CLI Dev"
       ]
     },
     {
@@ -56,49 +68,74 @@
       "tags": [
         "Structured Logging",
         "Request IDs",
-        "Latency Tracking",
-        "Integration Tests"
+        "Integration Tests",
+        "Criterion Benchmarking"
       ]
     }
   ],
 
   "projects": [
     {
-      "name": "CrispyDB",
-      "stack": "Rust",
-      "desc": "In-memory BTreeMap-backed key-value storage engine with async background persistence. Read paths are accelerated by Bloom filters (xxh3_128) to skip unnecessary disk I/O. Configurable builder pattern, tombstone-based deletes, and a manifest tracking flushed file numbers across shutdown cycles.",
-      "url": "https://github.com/ajaka-the-wizard/crispyDB"
-    },
-    {
       "name": "Redir",
       "stack": "Go · PostgreSQL · Redis · S3",
-      "desc": "Layered Gin service with strict package separation across routes, handlers, middleware, store, cache, and repository. Full auth stack: bcrypt, Redis-backed sessions, email verification, Google OAuth. Multipart uploads via AWS SDK v2, presigned URL caching, per-access metadata capture, and route-scoped rate limiting.",
-      "url": "https://github.com/ajaka-the-wizard/redir"
+      "desc": "A production-shaped media upload and CDN redirect service that shows what a real Go backend looks like internally. The interesting engineering is in the details: presigned URLs are generated once and reused from cache to avoid hammering S3; the auth stack covers bcrypt, Redis-backed sessions, email verification, Google and GitHub OAuth, and product-scoped API keys — all in one service. A companion Go SDK handles resumable batch uploads with stable sequence IDs to prevent duplicates on retry. Integration tests cover the full auth lifecycle across a real DB and Redis.",
+      "url": "https://github.com/ajaka-the-wizard/redir",
+      "live": null
     },
     {
-      "name": "dnsgo",
-      "stack": "Go · in progress",
-      "desc": "Dual-mode DNS server: authoritative for its own zone, recursive resolver for everything else — forwarding to root servers and walking the full delegation chain. Clean package separation across cmd, internal, and configs; wire-protocol handled by a proven DNS library so focus stays on resolver and zone logic.",
-      "url": "https://github.com/ajaka-the-wizard/dnsgo"
+      "name": "Bolt",
+      "stack": "Go · Redis Streams · PostgreSQL",
+      "desc": "An async job processing service built to understand what reliable background work actually requires. Redis Streams gives durable, ordered delivery with at-least-once semantics — if a consumer crashes mid-pipeline, the job isn't lost. Each job runs a three-step pipeline: PDF invoice generation, outbound webhook delivery to third-party systems, and transactional email dispatch. PostgreSQL tracks job state so failures are observable and retryable, not silent.",
+      "url": "https://github.com/ajaka-the-wizard/bolt",
+      "live": null
     },
     {
       "name": "ShipFlow",
-      "stack": "TypeScript · Cloudflare · MongoDB",
-      "desc": "Collaboration platform with workspace membership, RBAC, and task management. GitHub App integration with HMAC webhook verification, PR tracking, and cleanup flows. Cloudflare Worker (Hono + D1 + Drizzle + CF Queues) handles async webhook ingestion and an AI review pipeline, sharing event contracts and idempotency keys with the backend. This is currently a private repo and will be made available on request",
-      "url": null
+      "stack": "TypeScript → Go · Cloudflare · MongoDB",
+      "desc": "A live, deployed collaboration platform — the only project here you can open in a browser right now. The interesting architecture decision was extracting high-throughput webhook ingestion into a Cloudflare Worker (Hono + D1 + Drizzle + CF Queues) rather than letting it block the main backend, with shared event contracts and idempotency keys keeping both sides consistent. The backend has been through a full JS → TS rewrite and is currently being ported to Go for better performance and explicit error handling.",
+      "url": null,
+      "live": "https://sshipflow.vercel.app"
+    },
+    {
+      "name": "CrispyDB",
+      "stack": "Rust",
+      "desc": "A storage engine built from scratch to understand how databases actually persist data. The core problem: reads should never touch disk unnecessarily. The solution is a two-stage read path — check the in-memory BTreeMap first, then consult per-file Bloom filter indices (xxh3_128) before deserializing any .bin files. False positives cost one wasted disk read; misses are impossible by design. Tombstone-based deletes and a shutdown manifest mean the engine restarts into a consistent state. The roadmap targets LSM-style layout and compaction.",
+      "url": "https://github.com/ajaka-the-wizard/crispyDB",
+      "live": null
+    },
+    {
+      "name": "Rate Limiter",
+      "stack": "Rust · Redis · Lua",
+      "desc": "A distributed token bucket library where the interesting constraint was correctness under concurrency. The Redis backend uses Lua scripting to make the check-and-decrement operation atomic — without that, two requests racing on the same key can both pass a limit that should only allow one. The in-memory backend uses Moka cache for high-throughput local use. A shared trait lets callers swap backends without changing call sites. Returns structured decisions (allow / retry_after / remaining) with Criterion benchmarks to back the performance claims.",
+      "url": "https://github.com/ajaka-the-wizard/rate_limiter",
+      "live": null
+    },
+    {
+      "name": "ShardedMap",
+      "stack": "Rust",
+      "desc": "A concurrent map built specifically to understand the tradeoffs in lock contention at scale. The insight: a single Mutex<HashMap> serializes all writes regardless of which keys are involved. Sharding by key hash means threads only contend when they touch the same shard. Benchmarked against DashMap and a naive global-lock baseline with Criterion across 1–16 threads — achieved ~2.3x higher throughput than the global-lock baseline at 16 threads. Over-sharding adds ~22% overhead at low contention with no concurrency to offset it, confirming shard count is a tunable, not a default.",
+      "url": "https://github.com/ajaka-the-wizard/sharded_map",
+      "live": null
+    },
+    {
+      "name": "watch",
+      "stack": "Rust · CLI",
+      "desc": "A file watcher and command runner that solves the everyday problem of manually restarting a process after every change. The interesting constraint was making it language-agnostic — watch doesn't know or care what your command does, it just monitors a directory recursively, filters by extension, debounces noisy events, and restarts the process cleanly using process-group management so child processes don't linger. Supports both TOML and JSON config with conflict detection at startup if both exist.",
+      "url": "https://github.com/ajaka-the-wizard/watch",
+      "live": null
     }
   ],
 
   "alsoBuilding": [
     {
-      "name": "bolt",
-      "lang": "Go",
-      "desc": "async order processing via Redis Streams, invoice generation, webhook delivery"
+      "name": "Queues",
+      "lang": "Rust",
+      "desc": "multi-group job queue with claim/ack semantics, O(1) doubly-linked list backed by HashMap, DashMap for thread-safe group management"
     },
     {
-      "name": "watch",
-      "lang": "Rust",
-      "desc": "nodemon-style file watcher that re-runs a configured command on directory changes"
+      "name": "dnsgo",
+      "lang": "Go",
+      "desc": "dual-mode DNS server with authoritative zone support and recursive resolver with full delegation chain walking"
     }
   ],
 
